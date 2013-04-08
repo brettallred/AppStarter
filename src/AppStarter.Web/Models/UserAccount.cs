@@ -1,4 +1,6 @@
-﻿namespace AppStarter.Models
+﻿using AppStarter.Enums;
+
+namespace AppStarter.Models
 {
     public class UserAccount
     {
@@ -7,6 +9,8 @@
         public string FullName { get; set; }
 
         public string Email { get; set; }
+
+        public UserRoles Role { get; set; }
 
         public string Password
         {

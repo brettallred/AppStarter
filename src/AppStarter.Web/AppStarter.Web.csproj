@@ -139,6 +139,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MailController.cs" />
+    <Compile Include="Enums\UserRoles.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -151,7 +152,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\SendGridMailService\GridMailSender.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordModel.cs" />
     <Compile Include="ViewModels\Account\LogOnModel.cs" />
+    <Compile Include="ViewModels\Mail\ChangePasswordMessage.cs" />
+    <Compile Include="ViewModels\Mail\Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -234,5 +238,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Layouts\_Root.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Mail\PasswordChanged.html.cshtml" />
   </ItemGroup>
 </Project>

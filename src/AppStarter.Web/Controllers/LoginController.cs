@@ -1,9 +1,12 @@
 ﻿
+using System;
 using System.Linq;
 using System.Web.Configuration;
 using System.Web.Mvc;
 using AppStarter.Models;
 using AppStarter.ViewModels.Account;
+using AppStarter.ViewModels.Mail;
+using MvcFlash.Core;
 
 namespace AppStarter.Controllers
 {
@@ -30,7 +33,7 @@ namespace AppStarter.Controllers
                 return View("Index", model);
             }
 
-            WebContext.SignIn(user.Id, "Admin", model.RememberMe);
+            WebContext.SignIn(user.Id, user.Role.ToString(), model.RememberMe);
             if (string.IsNullOrEmpty(model.ReturnUrl))
             {
                 return RedirectToAction("Index", "Home");
@@ -45,9 +48,33 @@ namespace AppStarter.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public ActionResult ForgotPassword()
         {
-            return View();
+            return View(new ForgotPasswordModel());
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordModel model)
+        {
+            var user = Raven.Query<UserAccount>().SingleOrDefault(x => x.Email == model.Email);
+
+            if (user == null)
+            {
+                ModelState.AddModelError("Error", "Email not found.");
+            }
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var newPassword = Guid.NewGuid().ToString().Replace("-", string.Empty).Substring(0, 8);
+            user.Password = newPassword;
+            Raven.Store(user);
+            Raven.SaveChanges();
+
+            new MailController().PasswordChanged(new ChangePasswordMessage {NewPassword = newPassword, Recipient = user}).Deliver();
+
+            Flash.Success("A new password has been emailed to you.");
+            return RedirectToAction("Index");
         }
     }
 }
