@@ -1,0 +1,50 @@
+﻿@using AppStarter.Helpers
+@using MvcFlash.Core.Extensions
+@model AppStarter.ViewModels.Account.LogOnModel
+@{
+    ViewBag.Title = "Index";
+    Layout = Layouts.Root;
+}
+
+ <div class="block-content form">
+
+    @Html.Flash()
+    @using (Html.BeginForm("Login", "Login"))
+    {
+
+        <div id="Summary">
+            @Html.ValidationSummary()
+        </div>
+        @Html.HiddenFor(x => x.ReturnUrl)
+
+        <h1>Login</h1>
+
+        <p>
+            <label>Email</label>
+            @Html.TextBoxFor(x => x.Email)
+        </p>
+
+        <p>
+            <label>Password</label>
+            @Html.PasswordFor(x => x.Password)
+        </p>
+
+        <p>
+            <label>
+                Remember Me: 
+             
+                @Html.CheckBoxFor(x => x.RememberMe)
+            </label>
+        </p>
+
+        <fieldset class="grey-bg no-margin">
+            <legend>Actions</legend>
+            <div class="columns">
+                <p class="align-right">
+                        <a href="@Url.Action("ForgotPassword", "Login")">Forgot Password?</a>
+                    <button id="login" name="login" type="submit" class="button" value="Login">Login</button>
+                </p>
+            </div>
+        </fieldset>
+    }
+</div>
