@@ -1,0 +1,20 @@
+﻿@model AppStarter.ViewModels.Registration.RegistrationModel
+
+@{
+    Layout = null;
+}
+
+<p>Dear @Model.FullName,</p>
+
+<p>Thank you for signing up with AppStarter!</p> 
+<p>You may now log in to <a href="#" target="_blank">AppStarter</a> using the following credentials:</p>
+
+<p>
+    Username: @Model.Email <br />
+    Password: @Model.Password
+</p> 
+
+<p>
+    Sincerely,<br />
+    The AppStarter Team
+</p>

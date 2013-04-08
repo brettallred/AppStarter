@@ -139,6 +139,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MailController.cs" />
+    <Compile Include="Controllers\RegistrationsController.cs" />
     <Compile Include="Enums\UserRoles.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -156,6 +157,7 @@
     <Compile Include="ViewModels\Account\LogOnModel.cs" />
     <Compile Include="ViewModels\Mail\ChangePasswordMessage.cs" />
     <Compile Include="ViewModels\Mail\Message.cs" />
+    <Compile Include="ViewModels\Registration\RegistrationModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -244,5 +246,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Mail\PasswordChanged.html.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Registrations\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Mail\SendUserSignupMessage.html.cshtml" />
   </ItemGroup>
 </Project>
