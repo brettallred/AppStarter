@@ -149,6 +149,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Layouts.cs" />
+    <Compile Include="Infrastructure\DataAnnotationsAttributes\EmailAttribute.cs" />
     <Compile Include="Infrastructure\DefaultHttpContextWrapper.cs" />
     <Compile Include="Infrastructure\IHttpContextWrapper.cs" />
     <Compile Include="Infrastructure\RavenDB\Command.cs" />
