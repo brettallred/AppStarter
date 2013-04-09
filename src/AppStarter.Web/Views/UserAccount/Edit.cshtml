@@ -1,0 +1,49 @@
+﻿@using AppStarter.Helpers
+@using MvcFlash.Core.Extensions
+
+@model AppStarter.ViewModels.Account.UserAccountModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = Layouts.Root;
+}
+
+<h2>User Information</h2>
+
+<div class="block-content form">
+
+    @Html.Flash()
+    @using (Html.BeginForm("Edit", "UserAccount"))
+    {
+
+        <div id="Summary">
+            @Html.ValidationSummary()
+        </div>
+
+        <p>
+            @Html.LabelFor(x => x.FullName)
+            @Html.TextBoxFor(x => x.FullName)
+        </p>
+
+        <p>
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email)
+        </p>
+
+        <p>
+            @Html.LabelFor(x => x.Password)
+            @Html.PasswordFor(x => x.Password)
+        </p>
+        
+        <fieldset class="grey-bg no-margin">
+            <legend>Actions</legend>
+            <div class="columns">
+                <p class="align-right">
+                    <button name="UserAccount" type="submit" class="button" value="Save">Save</button>
+                </p>
+            </div>
+        </fieldset>
+    }
+</div>
+
+
