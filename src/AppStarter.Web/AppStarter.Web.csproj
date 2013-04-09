@@ -151,6 +151,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Attributes\AttributeExtensions.cs" />
+    <Compile Include="Helpers\Attributes\DescriptionAttribute.cs" />
+    <Compile Include="Helpers\Extensions\DocumentSessionExtensions.cs" />
+    <Compile Include="Helpers\Extensions\Extensions.cs" />
+    <Compile Include="Helpers\Extensions\String.cs" />
     <Compile Include="Helpers\Layouts.cs" />
     <Compile Include="Infrastructure\DataAnnotationsAttributes\EmailAttribute.cs" />
     <Compile Include="Infrastructure\DefaultHttpContextWrapper.cs" />
@@ -860,7 +865,7 @@
     <Content Include="NLog.config.cshtml" />
     <Content Include="NLog.config">
       <DependentUpon>NLog.config.cshtml</DependentUpon>
-	  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
