@@ -169,6 +169,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Assets\vendor\js\garber_irish.js" />
     <Content Include="Assets\vendor\theme\css\bootstrap-responsive.css" />
     <Content Include="Assets\vendor\theme\css\bootstrap-responsive.min.css" />
     <Content Include="Assets\vendor\theme\css\bootstrap.css" />
@@ -749,7 +750,6 @@
     <Folder Include="Assets\app\img\" />
     <Folder Include="Assets\app\js\" />
     <Folder Include="Assets\vendor\css\" />
-    <Folder Include="Assets\vendor\js\" />
     <Folder Include="Assets\vendor\theme\js\plugins\elfinder\files\.quarantine\" />
   </ItemGroup>
   <ItemGroup>
