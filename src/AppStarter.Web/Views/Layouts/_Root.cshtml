@@ -2,15 +2,171 @@
     Layout = null;
 }
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!doctype html>
+<html>
 <head>
-    <title>App Starter</title>
+    <title>@ViewBag.Title</title>
+
+    <meta charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Apple devices fullscreen -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Apple devices fullscreen -->
+    <meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/bootstrap.min.css">
+    <!-- Bootstrap responsive -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/bootstrap-responsive.min.css">
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/plugins/jquery-ui/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/plugins/jquery-ui/smoothness/jquery.ui.theme.css">
+    <!-- PageGuide -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/plugins/pageguide/pageguide.css">
+    <!-- Fullcalendar -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/plugins/fullcalendar/fullcalendar.css">
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/plugins/fullcalendar/fullcalendar.print.css" media="print">
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/style.css">
+    <!-- Color CSS -->
+    <link rel="stylesheet" href="~/Assets/vendor/theme/css/themes.css">
+
+    <!-- jQuery -->
+    <script src="~/Assets/vendor/theme/js/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Assets/vendor/theme/js/plugins/jquery-ui/jquery.ui.core.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/jquery-ui/jquery.ui.widget.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/jquery-ui/jquery.ui.mouse.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/jquery-ui/jquery.ui.draggable.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/jquery-ui/jquery.ui.resizable.min.js"></script>
+    <!-- Touch enable for jquery UI -->
+    <script src="~/Assets/vendor/theme/js/plugins/touch-punch/jquery.touch-punch.min.js"></script>
+    <!-- slimScroll -->
+    <script src="~/Assets/vendor/theme/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Assets/vendor/theme/js/bootstrap.min.js"></script>
+    <!-- vmap -->
+    <script src="~/Assets/vendor/theme/js/plugins/vmap/jquery.vmap.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/vmap/jquery.vmap.world.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/vmap/jquery.vmap.sampledata.js"></script>
+    <!-- Bootbox -->
+    <script src="~/Assets/vendor/theme/js/plugins/bootbox/jquery.bootbox.js"></script>
+    <!-- Flot -->
+    <script src="~/Assets/vendor/theme/js/plugins/flot/jquery.flot.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/flot/jquery.flot.bar.order.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/flot/jquery.flot.pie.min.js"></script>
+    <script src="~/Assets/vendor/theme/js/plugins/flot/jquery.flot.resize.min.js"></script>
+    <!-- imagesLoaded -->
+    <script src="~/Assets/vendor/theme/js/plugins/imagesLoaded/jquery.imagesloaded.min.js"></script>
+    <!-- PageGuide -->
+    <script src="~/Assets/vendor/theme/js/plugins/pageguide/jquery.pageguide.js"></script>
+    <!-- FullCalendar -->
+    <script src="~/Assets/vendor/theme/js/plugins/fullcalendar/fullcalendar.min.js"></script>
+
+    <!-- Theme framework -->
+    <script src="~/Assets/vendor/theme/js/eakroko.min.js"></script>
+    <!-- Theme scripts -->
+    <script src="~/Assets/vendor/theme/js/application.min.js"></script>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Assets/vendor/theme/img/favicon.ico" />
+    <!-- Apple devices Homescreen icon -->
+    <link rel="apple-touch-icon-precomposed" href="~/Assets/vendor/theme/img/apple-touch-icon-precomposed.png" />
+    
+    @RenderSection("header", false)
+
 </head>
 
 <body data-controller="@ViewContext.RouteData.GetRequiredString("controller").ToLower()" data-action="@ViewContext.RouteData.GetRequiredString("action").ToLower()">
-    
-    @RenderBody()
+    <!-- Top navigation container -->
+    <div id="navigation">
+        <div class="container-fluid">
+            <!-- Site Title -->
+            <a href="#" id="brand">AppStrarter</a>
+            <ul class='main-nav'>
+				<li>
+					<a href="@Url.Action("Index", "Home")">
+						<i class="icon-home"></i>
+						<span>Home</span>
+					</a>
+				</li>
+			</ul>
+			<div class="user">
+				<ul class="icon-nav">
+					<li class="dropdown sett">
+						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-cog"></i></a>
+						<ul class="dropdown-menu pull-right theme-settings">
+							<li>
+								<span>Layout-width</span>
+								<div class="version-toggle">
+									<a href="#" class='active set-fixed'>Fixed</a>
+									<a href="#" class="set-fluid">Fluid</a>
+								</div>
+							</li>
+							
+						</ul>
+					</li>
+					<li class='dropdown colo'>
+						<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-tint"></i></a>
+						<ul class="dropdown-menu pull-right theme-colors">
+							<li class="subtitle">
+								Predefined colors
+							</li>
+							<li>
+								<span class='red'></span>
+								<span class='orange'></span>
+								<span class='green'></span>
+								<span class="brown"></span>
+								<span class="blue"></span>
+								<span class='lime'></span>
+								<span class="teal"></span>
+								<span class="purple"></span>
+								<span class="pink"></span>
+								<span class="magenta"></span>
+								<span class="grey"></span>
+								<span class="darkblue"></span>
+								<span class="lightred"></span>
+								<span class="lightgrey"></span>
+								<span class="satblue"></span>
+								<span class="satgreen"></span>
+							</li>
+						</ul>
+					</li>
+				
+				<li class="dropdown">
+					<a href="#" class='dropdown-toggle' data-toggle="dropdown"><i class="icon-user"></i>Admin</a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="@Url.Action("Edit", "UserAccount")">Account settings</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Logout", "Login")">Sign out</a>
+                        </li>
+                    </ul>
+				</li>
+				</ul>
+			</div>
+			<a href="#" class='toggle-mobile'><i class="icon-reorder"></i></a>
+		</div>
+	</div>
+    <div class="container-fluid" id="content">
+        <div id="left">
 
+            <div class="subnav">
+            </div>
+
+            <div>
+            </div>
+        </div>
+        <div id="main">
+
+            @RenderBody()
+            
+        </div>
+    </div>
+    @RenderSection("footer", false)
 </body>
 </html>
+

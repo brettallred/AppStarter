@@ -4,6 +4,7 @@ using AppStarter.ViewModels.Account;
 
 namespace AppStarter.Controllers
 {
+    [Authorize]
     public class UserAccountController : BaseController
     {
         //

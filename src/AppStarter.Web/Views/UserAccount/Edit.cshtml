@@ -8,42 +8,59 @@
     Layout = Layouts.Root;
 }
 
-<h2>User Information</h2>
-
-<div class="block-content form">
-
-    @Html.Flash()
-    @using (Html.BeginForm("Edit", "UserAccount"))
-    {
-
-        <div id="Summary">
-            @Html.ValidationSummary()
-        </div>
-
-        <p>
-            @Html.LabelFor(x => x.FullName)
-            @Html.TextBoxFor(x => x.FullName)
-        </p>
-
-        <p>
-            @Html.LabelFor(x => x.Email)
-            @Html.TextBoxFor(x => x.Email)
-        </p>
-
-        <p>
-            @Html.LabelFor(x => x.Password)
-            @Html.PasswordFor(x => x.Password)
-        </p>
-        
-        <fieldset class="grey-bg no-margin">
-            <legend>Actions</legend>
-            <div class="columns">
-                <p class="align-right">
-                    <button name="UserAccount" type="submit" class="button" value="Save">Save</button>
-                </p>
-            </div>
-        </fieldset>
-    }
+<div class="page-header">
+    <div class="pull-left">
+        <h1>User Information</h1>
+    </div>
 </div>
 
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box box-bordered box-color">
+            <div class="box-title">
+                <h3>
+                    <i class="icon-th-list"></i>
+                    @Model.FullName
+                </h3>
+            </div>
+            <div class="box-content nopadding">
+                <div class="box-content">
+                @Html.ValidationSummary(true)
+                @using (Html.BeginForm("Edit", "UserAccount", new { @class="form-vertical"}))
+                {
+                    @Html.ValidationSummary()
+                    @Html.Flash()
+
+                    <div class="control-group">
+                        @Html.LabelFor(x => x.FullName, new { @class="control-label"})
+                        <div class="controls">
+                            @Html.TextBoxFor(x => x.FullName, new { @class="input-xlarge"})
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        @Html.LabelFor(x => x.Email, new { @class="control-label"})
+                        <div class="controls">
+                            @Html.TextBoxFor(x => x.Email, new { @class="input-xlarge"})
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        @Html.LabelFor(x => x.Password, new { @class="control-label"})
+                        <div class="controls">
+                            @Html.PasswordFor(x => x.Password, new { @class="input-xlarge"})
+                        </div>
+                    </div>
+        
+                    <div class="submit">
+                        <div class="pull-left">
+                            <input name="UserAccount" type="submit" class="btn btn-primary" value="Save" />
+                        </div>
+                    </div>
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 

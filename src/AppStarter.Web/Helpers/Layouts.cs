@@ -11,5 +11,7 @@ namespace AppStarter.Helpers
 
         public const string Root = Folder + "_Root.cshtml";
 
+        public const string Login  = Folder + "_Login.cshtml";
+
     }
 }

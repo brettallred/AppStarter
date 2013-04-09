@@ -3,48 +3,37 @@
 @model AppStarter.ViewModels.Account.LogOnModel
 @{
     ViewBag.Title = "Index";
-    Layout = Layouts.Root;
+    Layout = Layouts.Login;
 }
 
- <div class="block-content form">
+<h1><a href="@Url.Action("index", "Home")">
+        <img src="~/Assets/vendor/theme/img/logo-big.png" alt="" class='retina-ready' width="59" height="49">AppStarter
+    </a></h1>
 
-    @Html.Flash()
-    @using (Html.BeginForm("Login", "Login"))
+<div class="login-body">
+    <h2>SIGN IN</h2>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin" }))
     {
-
-        <div id="Summary">
-            @Html.ValidationSummary()
-        </div>
+        @Html.ValidationSummary()
+        @Html.Flash()
         @Html.HiddenFor(x => x.ReturnUrl)
-
-        <h1>Login</h1>
-
-        <p>
-            <label>Email</label>
-            @Html.TextBoxFor(x => x.Email)
-        </p>
-
-        <p>
-            <label>Password</label>
-            @Html.PasswordFor(x => x.Password)
-        </p>
-
-        <p>
-            <label>
-                Remember Me: 
-             
-                @Html.CheckBoxFor(x => x.RememberMe)
-            </label>
-        </p>
-
-        <fieldset class="grey-bg no-margin">
-            <legend>Actions</legend>
-            <div class="columns">
-                <p class="align-right">
-                        <a href="@Url.Action("ForgotPassword", "Login")">Forgot Password?</a>
-                    <button id="login" name="login" type="submit" class="button" value="Login">Login</button>
-                </p>
-            </div>
-        </fieldset>
+        <div class="email">
+            @Html.TextBoxFor(x => x.Email, new {@class = "input-block-level", @placeholder = "Email address"})
+        </div>
+        <div class="pw">
+            @Html.PasswordFor(x => x.Password, new {@class = "input-block-level", placeholder = "Password"})
+        </div>
+        <div class="submit">
+            <div class="pull-left"><a href="@Url.Action("Index", "Registrations")" class="btn btn-primary">Registration</a></div>
+            <div class="pull-right"><input type="submit" value="Sign in" class='btn btn-primary'></div>
+        </div>
     }
+    
+    <div class="forget">
+        <a href="@Url.Action("ForgotPassword", "Login")">
+            <span>Forgot password?</span>
+        </a>
+    </div>
+
 </div>
+
