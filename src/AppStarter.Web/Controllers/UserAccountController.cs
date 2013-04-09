@@ -38,7 +38,7 @@ namespace AppStarter.Controllers
             Raven.SaveChanges();
             model.Password = string.Empty;
             MvcFlash.Core.Flash.Success("Information has been saved.");
-            return View("Index", model);
+            return View("Edit", model);
         }
 
     }

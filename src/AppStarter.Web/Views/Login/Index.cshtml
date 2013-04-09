@@ -14,8 +14,9 @@
     <h2>SIGN IN</h2>
     @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-signin" }))
     {
-        @Html.ValidationSummary()
         @Html.Flash()
+        @Html.ValidationSummary()
+        
         @Html.HiddenFor(x => x.ReturnUrl)
         <div class="email">
             @Html.TextBoxFor(x => x.Email, new {@class = "input-block-level", @placeholder = "Email address"})

@@ -745,9 +745,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\app\images\" />
-    <Folder Include="Assets\app\javascripts\" />
-    <Folder Include="Assets\app\stylesheets\" />
+    <Folder Include="Assets\app\css\" />
+    <Folder Include="Assets\app\img\" />
+    <Folder Include="Assets\app\js\" />
     <Folder Include="Assets\vendor\css\" />
     <Folder Include="Assets\vendor\js\" />
     <Folder Include="Assets\vendor\theme\js\plugins\elfinder\files\.quarantine\" />

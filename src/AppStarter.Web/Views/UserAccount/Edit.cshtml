@@ -25,8 +25,7 @@
             </div>
             <div class="box-content nopadding">
                 <div class="box-content">
-                @Html.ValidationSummary(true)
-                @using (Html.BeginForm("Edit", "UserAccount", new { @class="form-vertical"}))
+                @using (Html.BeginForm("Edit", "UserAccount", FormMethod.Post, new { @class="form-vertical"}))
                 {
                     @Html.ValidationSummary()
                     @Html.Flash()
