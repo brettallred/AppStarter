@@ -45,7 +45,8 @@ namespace AppStarter
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            
+            AuthConfig.RegisterAuth();
+
             RavenConfig.TryCreatingIndexesOrRedirectToErrorPage();
         }
     }

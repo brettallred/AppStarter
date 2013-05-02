@@ -6,9 +6,11 @@
     Layout = Layouts.Login;
 }
 
-<h1><a href="@Url.Action("index", "Home")">
+<h1>
+    <a href="@Url.Action("index", "Home")">
         <img src="~/Assets/vendor/theme/img/logo-big.png" alt="" class='retina-ready' width="59" height="49">AppStarter
-    </a></h1>
+    </a>
+</h1>
 
 <div class="login-body">
     <h2>SIGN IN</h2>
@@ -19,17 +21,22 @@
         
         @Html.HiddenFor(x => x.ReturnUrl)
         <div class="email">
-            @Html.TextBoxFor(x => x.Email, new {@class = "input-block-level", @placeholder = "Email address"})
+            @Html.TextBoxFor(x => x.Email, new { @class = "input-block-level", @placeholder = "Email address" })
         </div>
         <div class="pw">
-            @Html.PasswordFor(x => x.Password, new {@class = "input-block-level", placeholder = "Password"})
+            @Html.PasswordFor(x => x.Password, new { @class = "input-block-level", placeholder = "Password" })
         </div>
         <div class="submit">
             <div class="pull-left"><a href="@Url.Action("Index", "Registrations")" class="btn btn-primary">Registration</a></div>
-            <div class="pull-right"><input type="submit" value="Sign in" class='btn btn-primary'></div>
+            <div class="pull-right">
+                <input type="submit" value="Sign in" class='btn btn-primary'></div>
         </div>
     }
-    
+
+    <div>
+        @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+    </div>
+
     <div class="forget">
         <a href="@Url.Action("ForgotPassword", "Login")">
             <span>Forgot password?</span>
